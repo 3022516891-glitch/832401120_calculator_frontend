@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Scientific Calculator</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="js/config.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body>
+  <main class="page-container">
+    <section class="calculator">
+      <div class="calculator-header">
+        <h1>Scientific Calculator</h1>
+        <button id="toggle-history" class="toggle-history" type="button"
+                aria-controls="history-panel" aria-expanded="true">
+          Hide History
+        </button>
+      </div>
+      <div class="display">
+        <div id="expression" class="expression">0</div>
+        <div id="result" class="result">0</div>
+      </div>
+
+      <details class="science-panel" open>
+        <summary>Scientific</summary>
+        <div class="science-buttons">
+          <button data-action="square" title="Square">x²</button>
+          <button data-value="^" title="Power">xʸ</button>
+          <button data-function="sqrt" title="Square root">√x</button>
+          <button data-action="reciprocal" title="Reciprocal">1/x</button>
+          <button data-function="log" title="Base-10 logarithm">log</button>
+          <button data-function="ln" title="Natural logarithm">ln</button>
+          <button data-constant="pi" title="Pi">π</button>
+          <button data-constant="e" title="Euler's number">e</button>
+          <button data-function="sin" title="Sine">sin</button>
+          <button data-function="cos" title="Cosine">cos</button>
+          <button data-function="tan" title="Tangent">tan</button>
+        </div>
+      </details>
+      <div class="buttons">
+        <button class="clear" data-action="clear">AC</button>
+        <button data-action="delete">⌫</button>
+        <button data-value="(">(</button>
+        <button data-value=")">)</button>
+
+        <button data-number="7">7</button>
+        <button data-number="8">8</button>
+        <button data-number="9">9</button>
+        <button class="operator" data-operator="/">÷</button>
+
+        <button data-number="4">4</button>
+        <button data-number="5">5</button>
+        <button data-number="6">6</button>
+        <button class="operator" data-operator="*">×</button>
+
+        <button data-number="1">1</button>
+        <button data-number="2">2</button>
+        <button data-number="3">3</button>
+        <button class="operator" data-operator="-">−</button>
+
+        <button class="zero" data-number="0">0</button>
+        <button data-number=".">.</button>
+        <button class="operator" data-operator="+">+</button>
+        <button class="equals" data-action="calculate">=</button>
+      </div>
+
+      <p id="message" class="message" role="alert"></p>
+    </section>
+
+    <section id="history-panel" class="history">
+      <div class="history-header">
+        <h2>History</h2>
+        <button id="refresh-history" type="button">Refresh</button>
+        <button id="clear-history" type="button" class="delete-button">Clear All</button>
+      </div>
+
+      <form id="history-search" class="history-search">
+        <input id="search-keyword" type="search" placeholder="Search expressions or results">
+        <button type="submit">Search</button>
+      </form>
+      <label class="favorite-filter">
+        <input id="favorite-only" type="checkbox">
+        Favorites only
+      </label>
+
+      <div class="batch-actions">
+        <button id="delete-selected" class="delete-button" type="button" disabled>
+          Delete Selected
+        </button>
+      </div>
+
+      <p id="history-status">Loading...</p>
+      <ul id="history-list"></ul>
+      <div class="pagination">
+        <button id="previous-page" type="button">Previous</button>
+        <span id="page-info">Page 1 / 1</span>
+        <button id="next-page" type="button">Next</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
